@@ -14,7 +14,7 @@ import sys
 driver = GraphDatabase("http://localhost:7474", username="neo4j", password="mypassword")
 
 animales = ["Gato", "Perro Grande", "Loro", "Perico", "Canarios", "Perro mediano", "Perro pequeño", "Pez", "Tortuga", "Cotorras", "Agapornis", "Tarantula", "Serpiente", "Hamster", "Lagartos", "Mini piggies", "Ratones", "Cuyos", "Conejos", "Pollos", "Lagartijas", "Urones"]
-rangoPresu = ["0-399", "400-899", "900-1400"]
+rangoPresu = ["Poco presupuesto", "Mediano presupuesto", "Alto presupuesto"]
 rangoEspacio = ["Pequeno", "Grande", "Moderado"]
 ninosPeques = ["Si", "No"]
 hrSemana = ["0-3", "4-7", "8-11"]
@@ -34,13 +34,43 @@ alergia = driver.labels.create("Alergia")
 
 #-------- CREACION NODOS ---------
 
+
+def add_preusuarios():
+    
 def add_usuario(nombre, telefono, correo, edad):
     u1 = driver.nodes.create(Nombre=nombre, Telefono=telefono, Correo=corre, Edad=edad)
     usuarios.add(u1)
     return u1
 
 def add_animal():
-    a1 = driver.nodes.create
+    for i in animales:
+        an = driver.nodes.create(Nombre=i)
+        animal.add(an)
+
+def add_presu():
+    for i in rangoPresu:
+        pres = driver.nodes.create(Rango=i)
+        presupuesto.add(pres)
+
+def add_ninos():
+    for i in ninosPeques:
+        nn = driver.nodes.crate(Tiene=i)
+        ninos.add(nn)
+
+def add_tiempo():
+    for i in hrSemana:
+        tt = driver.nodes.create(Tiempo=i)
+        tiempo.add(tt)
+
+def add_personalidad():
+    for i in personalidad:
+        pp = driver.nodes.create(Personality=i)    #seria bueno tal vez ponerle otro nombre pero la mera verdad no se me ocurre
+        personalidad.add(pp)
+
+def add_alergia():
+    for i in ninosPeques:
+        al = driver.nodes.create(Posee=i)
+        alergia.add(al)
 
 
 #------ RELACIONES -----
