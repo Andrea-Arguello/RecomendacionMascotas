@@ -80,7 +80,7 @@ def add_preusuarios():
     archivo.close()
     for lineas in contenido:
         users = lineas.split(", ")
-        ul = driver.nodes.create(Nombre=users[0], Presupuesto=user[1], Alergia=users[2], Espacio=users[3], Ninos=users[4], Tiempo=users[5], Personalidad=users[6], Tipo=users[7], Tenido=users[8])
+        ul = driver.nodes.create(Nombre=users[0], Tenido=user[1], Espacio=users[2], Ninos=users[3], Tiempo=users[4], Personalidad=users[5], Tipo=users[6], Presupuesto=users[7], Alergia=users[8])
         usuario.add(ul)
         prefMas(ul, users[7])
         relacionUA(ul, users[2])
