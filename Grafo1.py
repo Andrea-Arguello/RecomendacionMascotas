@@ -13,12 +13,12 @@ import sys
 
 driver = GraphDatabase("http://localhost:7474", username="neo4j", password="mypassword")
 
-animales = ["Gato", "Perro Grande", "Loro", "Perico", "Canarios", "Perro mediano", "Perro pequeño", "Pez", "Tortuga", "Cotorras", "Agapornis", "Tarantula", "Serpiente", "Hamster", "Lagartos", "Mini piggies", "Ratones", "Cuyos", "Conejos", "Pollos", "Lagartijas", "Urones"]
 rangoPresu = ["Poco presupuesto", "Mediano presupuesto", "Alto presupuesto"]
 rangoEspacio = ["Pequeno", "Grande", "Moderado"]
 ninosPeques = ["Si", "No"]
 hrSemana = ["0-3", "4-7", "8-11"]
 personalidad = ["Extrovertida", "Introvertida"]
+tipoMas = ["Activa", "Inactiva"]
 
 
 usuario = driver.labels.create("Usuario")
@@ -36,16 +36,36 @@ alergia = driver.labels.create("Alergia")
 
 
 def add_preusuarios():
+    #aqui se tendria que leer el archivo de texto de la base de datos de analu + el de la db de google
+    nodosUsers = []
+    archivo = open("users.txt", "r")  #esto es supositorio (el nombre)
+    contenido = archivo.readlines()
+    archivo.close()
+    for lineas in contenido:
+        users = lineas.split(", ")
+        ul = driver.nodes.create(Nombre=users[0], Presupuesto=user[1], Alergia=users[2], Espacio=users[3], Ninos=users[4], Tiempo=users[5], Personalidad=users[6], Tipo=users[7])
+        usuario.add(ul)
+        nodosUsers.append(ul)
+        
+    return nodosUsers
     
-def add_usuario(nombre, telefono, correo, edad):
-    u1 = driver.nodes.create(Nombre=nombre, Telefono=telefono, Correo=corre, Edad=edad)
+def add_usuario(nombre):
+    u1 = driver.nodes.create(Nombre=nombre)
     usuarios.add(u1)
     return u1
 
 def add_animal():
-    for i in animales:
-        an = driver.nodes.create(Nombre=i)
+    nodosAni = []
+    archivo = open("animales.txt", "r")  #esto es supositorio (el nombre)
+    contenido = archivo.readlines()
+    archivo.close()
+    for lineas in contenido:
+        animales = lineas.split(", ")
+        an = driver.nodes.create(Nombre=animales[0], Presupuesto=animales[1], Alergia=animales[2], Espacio=animales[3], Ninos=animales[4], Tiempo=animales[5], Personalidad=animales[6], Tipo=animales[7])
         animal.add(an)
+        nodosAni.append(an)
+        
+    return nodosAni
 
 def add_presu():
     for i in rangoPresu:
