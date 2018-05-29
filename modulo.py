@@ -13,8 +13,6 @@ import sys
 
 driver = GraphDatabase("http://localhost:7474", username="neo4j", password="mypassword")
 
-espacios = ["Pequeno", "Mediano", "Grande"]
-espacioV = ["0", "1", "2"]
 rangoPresuV = ["0", "1", "2"]
 rangoPresu = ["Poco presupuesto", "Regular presupuesto", "Alto presupuesto"]
 rangoEspacioV = ["1", "2", "3"]
@@ -33,7 +31,7 @@ alergiasV = ["1", "0"]
 usuario = driver.labels.create("Usuario")
 animal = driver.labels.create("Animal")
 tiempo = driver.labels.create("CaracteristicaTiempo")
-espacio = driver.labels.create("CaracteristicaEspacio")
+espaciop = driver.labels.create("CaracteristicaEspacio")
 presupuesto = driver.labels.create("CaracteristicaPresupuesto")
 personalidades = driver.labels.create("CaracteristicaPersonalidad")
 tipoMas = driver.labels.create("CaracteristicaTipoM")
@@ -77,12 +75,16 @@ def add_alergia():
 
 #agregar un nodo de activo o inactivo para el tipo de mascota
 def add_tipoM():
-    for i in range(len(tipoMase)):
+    for i in range(len(tipoMases)):
         tipo = driver.nodes.create(Nombre=tipoMases[i], Valor= tipoMasesV[i])
         tipoMas.add(tipo)
-        
-    
 
+
+def add_espacio():
+    for i in range(len(rangoEspacio)):
+        space = driver.nodes.create(Nombre=rangoEspacio[i], Valor= rangoEspacioV[i])
+        espaciop.add(space)
+        
 def add_preusuarios():
     #aqui se tendria que leer el archivo de texto de la base de datos de analu + el de la db de google
     archivo = open("users.txt", "r")  #esto es supositorio (el nombre)
