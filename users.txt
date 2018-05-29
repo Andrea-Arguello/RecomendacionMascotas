@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿Marcos Gutierrez, Perro, Pequeno, No, 4-7, Introvertida, Tranquila, 0-599
+Marcos Gutierrez, Perro, Pequeno, No, 4-7, Introvertida, Tranquila, 0-599
 Jonathan Juarez, Perro, Mediano, Si, 0-3, Extrovertida, Activa, 0-599
 Oscar Lopez, Perro, Grande, No, 0-3, Extrovertida, Tranquila, 600-1099
 Anahi Hernandez, Perro, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
@@ -29,7 +28,6 @@ Rodrigo Arriaza, Perro, Pequeno, No, 0-3, Extrovertida, Tranquila, 600-1099
 Katherine Chacon, Perro, Mediano, No, 0-3, Extrovertida, Tranquila, 600-1099
 Merilyn Morales, Gato, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
 Andrea Golcher, Perro, Pequeno, No, 0-3, Extrovertida, Tranquila, 0-599
-=======
 Marcos Gutierrez, Perros medianos, 1, 0, 1, 0, 0, 1, 0
 Jonathan Juarez, Perros medianos, 2, 1, 0, 1, 1, 1, 0
 Oscar Lopez, Perros medianos, 3, 0, 0, 1, 0, 2, 0
@@ -73,7 +71,6 @@ Fernanda Moller, Perros medianos y gatos y tortugas, 2, 0, 0, 1, 1, 0, 0
 Victor Aguilar, Perros medianos, 2, 1, 0, 0, 0, 0, 0 
 Julio Montenegro, Perros medianos, 3, 0, 1, 1, 0, 0, 0 
 Francisco Marroquin, -, 1, 1, 2, 1, 0, 1, 1 
-Carlos Pozuelos, Perros medianos y perros pequenos y gatos, 2, 0, 0, 1, 1, 1, 0 
-Nicolas Sumich, Perros medianos grandes y Perros medianos pequenos y peces y tortugas, 1, 0, 2, 1, 1, 1, 0 
-Daniel Diaz, Perros medianos medianos y Perros medianos pequenos y gatos y peces, 3, 1, 0, 1, 1, 1, 1 
->>>>>>> b77ea74b83cf818598445093892fe6eb9cf95bd5
+Carlos Pozuelos, Perros medianos y Perros pequenos y gatos, 2, 0, 0, 1, 1, 1, 0 
+Nicolas Sumich, Perros grandes y Perros pequenos y peces y tortugas, 1, 0, 2, 1, 1, 1, 0 
+Daniel Diaz, Perros medianos y Perros pequenos y gatos y peces, 3, 1, 0, 1, 1, 1, 1 
