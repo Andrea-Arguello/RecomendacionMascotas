@@ -33,6 +33,7 @@ personalidad = driver.labels.create("Personalidad")
 alergia = driver.labels.create("Alergia")
 
 
+
 #------------------------------------------------------------------------------
 
 #-------- CREACION NODOS POR DEFAULT EN EL GRAFO ---------
@@ -80,15 +81,17 @@ def add_preusuarios():
     archivo.close()
     for lineas in contenido:
         users = lineas.split(", ")
-        ul = driver.nodes.create(Nombre=users[0], Tenido=user[1], Espacio=users[2], Ninos=users[3], Tiempo=users[4], Personalidad=users[5], Tipo=users[6], Presupuesto=users[7], Alergia=users[8])
+        print(users[0])
+        print(users[1])
+        print(users[2])
+        print(users[3])
+        print(users[4])
+        print(users[5])
+        print(users[6])
+        print(users[7])
+        print(users[8])
+        ul = driver.nodes.create(Nombre=users[0], Tenido=users[1], Espacio=users[2], Ninos=users[3], Tiempo=users[4], Personalidad=users[5], Tipo=users[6], Presupuesto=users[7], Alergia=users[8])
         usuario.add(ul)
-        prefMas(ul, users[7])
-        relacionUA(ul, users[2])
-        relacionPresupuesto(ul, users[1])
-        espacio(ul, users[3])
-        relacionNinos(ul, users[4])
-        tiempoUser(ul, users[5])
-        personalidadUsuario(ul, users[6])
 
 def add_animal():
     archivo = open("animales.txt", "r")  #esto es supositorio (el nombre)
@@ -111,9 +114,12 @@ def add_animal():
 #-------------------------------------------------------------------------------------------
 #----- CREACION DE NODOS EN TIEMPO DE EJECUCION ---------------------
     
-def add_usuario(nombre):
+def add_usuario(nombre, tenido, espacio, ninos, tiempo, personalidad, tipo, presupuesto, alergia):
     u1 = driver.nodes.create(Nombre=nombre)
     usuarios.add(u1)
+    archivo = open("users.txt", "a")
+    archivo.write(nombre + ", " + tenido + ", " + str(espacio) + ", " + str(ninos) + ", " + str(tiempo) + ", " + str(personalidad) + ", " + str(tipo) + ", " + str(presupuesto) + ", " + str(alergia)+ "\n")
+    archivo.close()
     return u1
 
 
@@ -298,14 +304,10 @@ def getConocidosUser(nombreUser):
 
 #-----------------------------------------------------------------------------
 # ------- METODO PARA PODER AGREGAR COSAS AL TXT PARA PODER USARLO COMO BASE DE DATOS ---------
-def agregar(nombre, tenido, espacio, ninos, tiempo, personalidad, tipo, presupuesto, alergia):
-    archivo = open("users.txt", "a")
-    archivo.write(nombre + ", " + tenido + ", " + str(espacio) + ", " + str(ninos) + ", " + str(tiempo) + ", " + str(personalidad) + ", " + str(tipo) + ", " + str(presupuesto) + ", " + str(alergia)+ "\n")
-    archivo.close()
-    
 
 
-            
+
+add_preusuarios()
 
 
 

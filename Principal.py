@@ -17,13 +17,11 @@ while(ciclo==0):
     entrada= raw_input(">>")
     print "\n**Usted ingreso: ", entrada,"**\n"
 
+    
 
 
     if(entrada=="1"):
         name = raw_input("Ingrese el nombre del doctor: ")
-        tel = raw_input("Ingrese el numero de contacto: ")
-        col = raw_input("Ingrese el numero de colegiado: ")
-        esp = raw_input("Ingrese la especialidad: ")
         add_Doctor(name,tel,col,esp)
         print '**Doctor ingresado**\n'
         ciclo = 0
