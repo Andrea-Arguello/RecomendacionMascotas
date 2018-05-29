@@ -1,7 +1,7 @@
 Marcos Gutierrez, Perros medianos, 1, 0, 1, 0, 0, 1, 0
 Jonathan Juarez, Perros medianos, 2, 1, 0, 1, 1, 1, 0
 Oscar Lopez, Perros medianos, 3, 0, 0, 1, 0, 2, 0
-Anahí Hernandez, Perros medianos, 2, 0, 1, 0, 0, 1, 0
+Anahi Hernandez, Perros medianos, 2, 0, 1, 0, 0, 1, 0
 Carlos Calderon, Perros medianos, 2, 0, 0, 1, 1, 2, 0
 Diego Castaneda, Uron, 2, 0, 1, 0, 0, 1, 0
 Gabriel Brolo, Perros medianos, 2, 0, 0, 1, 0, 2, 0
@@ -28,18 +28,18 @@ Rodrigo Arriaza, Perros medianos, 1, 0, 0, 1, 0, 2, 0
 Katherine Chacon, Perros medianos, 2, 0, 0, 1, 0, 2, 0
 Merilyn Morales, Gato, 2, 0, 1, 0, 0, 1, 1
 Andrea Golcher, Perros medianos, 1, 0, 0, 1, 0, 1, 1
-Maria Fernanda, Perros medianoss pequenos, 1, 1, 0, 1, 1, 1, 1 
+Maria Fernanda, Perros pequenos, 1, 1, 0, 1, 1, 1, 1 
 Andrea Arguello, Gatos, 3, 0, 1, 0, 1, 0, 0 
-Ana Hernandez, Loros y pollos y Perros medianoss medianos y Perros medianos grandes, 2, 1, 2, 1, 1, 0, 1 
+Ana Hernandez, Loros y pollos y Perros medianos y Perros grandes, 2, 1, 2, 1, 1, 0, 1 
 Mario Boleres, -, 3, 1, 2, 1, 1, 2, 1 
-Pedro Estrada, Perros medianoss pequenos y Perros medianoss grandes, 1, 0, 0, 0, 0, 1, 0 
-Maria Lopez, Perros medianoss grandes y gatos, 2, 0, 1, 1, 0, 1, 1 
+Pedro Estrada, Perros pequenos y Perros grandes, 1, 0, 0, 0, 0, 1, 0 
+Maria Lopez, Perros grandes y gatos, 2, 0, 1, 1, 0, 1, 1 
 Pablo Escobar, -, 2, 0, 0, 0, 0, 2, 1 
 Andrea Golcher, - , 3, 1, 1, 1, 1, 1, 1 
-Sylvia Mendez, Perros medianoss medianos, 1, 0, 2, 0, 0, 0, 0 
-Fernanda Moller, Perros medianoss medianos y gatos y tortugas, 2, 0, 0, 1, 1, 0, 0 
-Victor Aguilar, Perros medianoss medianos, 2, 1, 0, 0, 0, 0, 0 
-Julio Montenegro, Perros medianoss medianos, 3, 0, 1, 1, 0, 0, 0 
+Sylvia Mendez, Perros medianos, 1, 0, 2, 0, 0, 0, 0 
+Fernanda Moller, Perros medianos y gatos y tortugas, 2, 0, 0, 1, 1, 0, 0 
+Victor Aguilar, Perros medianos, 2, 1, 0, 0, 0, 0, 0 
+Julio Montenegro, Perros medianos, 3, 0, 1, 1, 0, 0, 0 
 Francisco Marroquin, -, 1, 1, 2, 1, 0, 1, 1 
 Carlos Pozuelos, Perros medianoss pequenos y gatos, 2, 0, 0, 1, 1, 1, 0 
 Diego Sumich, - , 3 , 1 , 1 , 1 , 1 , 1 , 1 
