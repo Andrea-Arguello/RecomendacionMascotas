@@ -1,6 +1,6 @@
 # RecomendacionMascotas
 # Para acceder a la base de datos generada por Neo4j, es necesario instalar neo4j desktop y configurar una nueva base de datos
-# Nombre: , Password: password
+# Nombre: neo4j, Password: mypassword, Localhost: 7474
 # Este programa ademas, corre en Python 2.7.14, no Python 3. Se debe tomar nota de eso.
 # Sitio de Neo4j: https://neo4j.com/download/other-releases
 # De este descargar Neo4j Desktop y los drivers para Python.
