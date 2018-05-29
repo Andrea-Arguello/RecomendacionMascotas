@@ -13,7 +13,9 @@ import sys
 
 driver = GraphDatabase("http://localhost:7474", username="neo4j", password="mypassword")
 
-rangoPresuV = ["1", "2", "3"]
+espacios = ["Pequeno", "Mediano", "Grande"]
+espacioV = ["0", "1", "2"]
+rangoPresuV = ["0", "1", "2"]
 rangoPresu = ["Poco presupuesto", "Regular presupuesto", "Alto presupuesto"]
 rangoEspacioV = ["1", "2", "3"]
 rangoEspacio = ["Pequeno", "Grande", "Moderado"]
@@ -75,9 +77,11 @@ def add_alergia():
 
 #agregar un nodo de activo o inactivo para el tipo de mascota
 def add_tipoM():
-    for i in range(len(tipoMases)):
+    for i in range(len(tipoMase)):
         tipo = driver.nodes.create(Nombre=tipoMases[i], Valor= tipoMasesV[i])
         tipoMas.add(tipo)
+        
+    
 
 def add_preusuarios():
     #aqui se tendria que leer el archivo de texto de la base de datos de analu + el de la db de google
@@ -156,7 +160,7 @@ def presupuestoAni(animal, presupuesto):
     for i in resultados:
         u = i[0]
         pre = i[1]
-        a.relationships.create("Presupuesto_animal", pre)
+        u.relationships.create("Presupuesto_animal", pre)
 
 def espacioAni(animal, espacio):
     q = 'MATCH (u:Animal), (s:CaracteristicaEspacio) WHERE u.Nombre=\"'+ animal +'\" AND s.Valor=\"'+ espacio +'\" RETURN u,s'
@@ -280,7 +284,7 @@ def tiempoUser(usuario, tiempo):
     for i in resultados:
         u = i[0]
         pre = i[1]
-        a.relationships.create("Tiempo", pre)
+        u.relationships.create("Tiempo", pre)
 
 
 #parcialmente terminado
@@ -304,7 +308,7 @@ def getConocidosUser(nombreUser):
             conocidosL.append(r[2]["Nombre"])
         return conocidosL
 
-
+add_espacio()
 add_ninos()
 add_personalidad()
 add_alergia()

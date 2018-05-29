@@ -1,34 +1,4 @@
-Marcos Gutierrez, Perro, Pequeno, No, 4-7, Introvertida, Tranquila, 0-599
-Jonathan Juarez, Perro, Mediano, Si, 0-3, Extrovertida, Activa, 0-599
-Oscar Lopez, Perro, Grande, No, 0-3, Extrovertida, Tranquila, 600-1099
-Anahi Hernandez, Perro, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
-Carlos Calderon, Perro, Mediano, No, 0-3, Extrovertida, Activa, 600-1099
-Diego Castaneda, No, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
-Gabriel Brolo, Perro, Mediano, No, 0-3, Extrovertida, Tranquila, 600-1099
-Maria de los Angeles Lopez, Perro, Mediano, No, 4-7, Extrovertida, Activa, 600-1099
-Javier Anleu, Perro, Mediano, No, 4-7, Extrovertida, Activa, 0-599
-Gabriela Dorantes, Perro, Mediano, Si, 8-11, Introvertida, Tranquila, 0-599
-Erick Rios, Perro, Mediano, No, 4-7, Extrovertida, Tranquila, 600-1099
-Juan Rios, Perro, Mediano, No, 8-11, Extrovertida, Activa, 600-1099
-Ligia Rios, Perro, Mediano, No, 4-7, Introvertida, Tranquila, 600-1099
-Sebastian Rios, Otro, Grande, No, 4-7, Extrovertida, Tranquila, 600-1099
-Manolo Calderon, Perro, Mediano, Si, 4-7, Introvertida, Activa, 600-1099
-Luis Esturban, No, Pequeno, No, 0-3, Introvertida, Tranquila, 600-1099
-Guillermo Sandoval, Perro, Mediano, No, 0-3, Introvertida, Activa, 0-599
-Javier Carpio, Perro, Grande, No, 0-3, Introvertida, Activa, 600-1099
-Walter Florian, Gato, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
-Carlos Flores, Perro, Mediano, Si, 0-3, Introvertida, Activa, 0-599
-Alejandro Tejada, Perro, Mediano, No, 0-3, Introvertida, Activa, 0-599
-Francisco Molina, Perro, Mediano, No, 4-7, Extrovertida, Activa, 0-599
-Jose Cifuentes, Perro, Mediano, No, 8-11, Extrovertida, Tranquila, 600-1099
-Oscar Juarez, Perro, Mediano, Si, 0-3, Introvertida, Tranquila, 600-1099
-David Soto, Otro, Mediano, No, 8-11, Extrovertida, Activa, 1100 o más
-Josue Lopez, Perro, Pequeno, No, 4-7, Introvertida, Tranquila, 0-599
-Rodrigo Arriaza, Perro, Pequeno, No, 0-3, Extrovertida, Tranquila, 600-1099
-Katherine Chacon, Perro, Mediano, No, 0-3, Extrovertida, Tranquila, 600-1099
-Merilyn Morales, Gato, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
-Andrea Golcher, Perro, Pequeno, No, 0-3, Extrovertida, Tranquila, 0-599
-Marcos Gutierrez, Perros medianos, 1, 0, 1, 0, 0, 1, 0
+﻿Marcos Gutierrez, Perros medianos, 1, 0, 1, 0, 0, 1, 0
 Jonathan Juarez, Perros medianos, 2, 1, 0, 1, 1, 1, 0
 Oscar Lopez, Perros medianos, 3, 0, 0, 1, 0, 2, 0
 Anahi Hernandez, Perros medianos, 2, 0, 1, 0, 0, 1, 0
