@@ -28,3 +28,20 @@ Rodrigo Arriaza, Perro, 1, 0, 0, 1, 0, 2, 0
 Katherine Chacon, Perro, 2, 0, 0, 1, 0, 2, 0
 Merilyn Morales, Gato, 2, 0, 1, 0, 0, 1, 1
 Andrea Golcher, Perro, 1, 0, 0, 1, 0, 1, 1
+Maria Fernanda, Perros pequeños, 1, 1, 0, 1, 1, 1, 1 
+Andrea Arguello, Gatos, 3, 0, 1, 0, 1, 0, 0 
+Ana Hernandez, Loros y pollos y perros medianos y perros grandes, 2, 1, 2, 1, 1, 0, 1 
+Mario Boleres, -, 3, 1, 2, 1, 1, 2, 1 
+Pedro Estrada, Perros peque ños y Perros grandes, 1, 0, 0, 0, 0, 1, 0 
+Maria Lopez, Perros grandes y gatos, 2, 0, 1, 1, 0, 1, 1 
+Pablo Escobar, -, 2, 0, 0, 0, 0, 2, 1 
+Andrea Golcher, - , 3, 1, 1, 1, 1, 1, 1 
+Sylvia Mendez, Perros medianos, 1, 0, 2, 0, 0, 0, 0 
+Fernanda Moller, Perros medianos y gatos y tortugas, 2, 0, 0, 1, 1, 0, 0 
+Victor Aguilar, Perros medianos, 2, 1, 0, 0, 0, 0, 0 
+Julio Montenegro, Perros medianos, 3, 0, 1, 1, 0, 0, 0 
+Francisco Marroquin, -, 1, 1, 2, 1, 0, 1, 1 
+Carlos Pozuelos, Perros peque ños y gatos, 2, 0, 0, 1, 1, 1, 0 
+Diego Sumich, - , 3 , 1 , 1 , 1 , 1 , 1 , 1 
+Nicolas Sumich, Perros grandes y perros pequeños y peces y tortugas, 1, 0, 2, 1, 1, 1, 0 
+Daniel Diaz, Perros medianos y perros pequeños y gatos y peces, 3, 1, 0, 1, 1, 1, 1 
