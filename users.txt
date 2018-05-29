@@ -1,47 +1,30 @@
-Marcos Gutierrez, Perros medianos, 1, 0, 1, 0, 0, 1, 0
-Jonathan Juarez, Perros medianos, 2, 1, 0, 1, 1, 1, 0
-Oscar Lopez, Perros medianos, 3, 0, 0, 1, 0, 2, 0
-Anahi Hernandez, Perros medianos, 2, 0, 1, 0, 0, 1, 0
-Carlos Calderon, Perros medianos, 2, 0, 0, 1, 1, 2, 0
-Diego Castaneda, Uron, 2, 0, 1, 0, 0, 1, 0
-Gabriel Brolo, Perros medianos, 2, 0, 0, 1, 0, 2, 0
-Marielos Lopez, Perros medianos, 2, 0, 1, 1, 1, 2, 1
-Javier Anleu, Perros medianos, 2, 0, 1, 1, 1, 1, 0
-Gabriela Dorantes, Perros medianos, 2, 1, 2, 0, 0, 1, 0
-Erick Rios, Perros medianos, 2, 0, 1, 1, 0, 2, 0
-Juan Rios, Perros medianos, 2, 0, 2, 1, 1, 2, 0
-Ligia Rios, Perros medianos, 2, 0, 1, 0, 0, 2, 0
-Sebastian Rios, Uron, 3, 0, 1, 1, 0, 2, 0
-Manolo Calderon, Perros medianos, 2, 1, 1, 0, 1, 2, 0
-Luis Esturban, Pez, 1, 0, 0, 0, 0, 2, 0
-Guillermo Sandoval, Perros medianos, 2, 0, 0, 0, 1, 1, 1
-Javier Carpio, Perros medianos, 3, 0, 0, 0, 1, 2, 1
-Walter Florian, Gato, 2, 0, 1, 0, 0, 1, 1
-Carlos Flores, Perros medianos, 2, 1, 0, 0, 1, 1, 1
-Alejandro Tejada, Perros medianos, 2, 0, 0, 0, 1, 1, 0
-Francisco Molina, Perros medianos, 2, 0, 1, 1, 1, 1, 0
-Jose Cifuentes, Perros medianos, 2, 0, 2, 1, 0, 2, 0
-Oscar Juarez, Perros medianos, 2, 1, 0, 0, 0, 2, 0
-David Soto, Pez, 2, 0, 2, 1, 1, 3, 0
-Josue Lopez, Perros medianos, 1, 0, 1, 0, 0, 1, 0
-Rodrigo Arriaza, Perros medianos, 1, 0, 0, 1, 0, 2, 0
-Katherine Chacon, Perros medianos, 2, 0, 0, 1, 0, 2, 0
-Merilyn Morales, Gato, 2, 0, 1, 0, 0, 1, 1
-Andrea Golcher, Perros medianos, 1, 0, 0, 1, 0, 1, 1
-Maria Fernanda, Perros pequenos, 1, 1, 0, 1, 1, 1, 1 
-Andrea Arguello, Gatos, 3, 0, 1, 0, 1, 0, 0 
-Ana Hernandez, Loros y pollos y Perros medianos y Perros grandes, 2, 1, 2, 1, 1, 0, 1 
-Mario Boleres, -, 3, 1, 2, 1, 1, 2, 1 
-Pedro Estrada, Perros pequenos y Perros grandes, 1, 0, 0, 0, 0, 1, 0 
-Maria Lopez, Perros grandes y gatos, 2, 0, 1, 1, 0, 1, 1 
-Pablo Escobar, -, 2, 0, 0, 0, 0, 2, 1 
-Andrea Golcher, - , 3, 1, 1, 1, 1, 1, 1 
-Sylvia Mendez, Perros medianos, 1, 0, 2, 0, 0, 0, 0 
-Fernanda Moller, Perros medianos y gatos y tortugas, 2, 0, 0, 1, 1, 0, 0 
-Victor Aguilar, Perros medianos, 2, 1, 0, 0, 0, 0, 0 
-Julio Montenegro, Perros medianos, 3, 0, 1, 1, 0, 0, 0 
-Francisco Marroquin, -, 1, 1, 2, 1, 0, 1, 1 
-Carlos Pozuelos, Perros medianoss pequenos y gatos, 2, 0, 0, 1, 1, 1, 0 
-Diego Sumich, - , 3 , 1 , 1 , 1 , 1 , 1 , 1 
-Nicolas Sumich, Perros medianoss grandes y Perros medianoss pequenos y peces y tortugas, 1, 0, 2, 1, 1, 1, 0 
-Daniel Diaz, Perros medianoss medianos y Perros medianoss pequenos y gatos y peces, 3, 1, 0, 1, 1, 1, 1 
+﻿Marcos Gutierrez, Perro, Pequeno, No, 4-7, Introvertida, Tranquila, 0-599
+Jonathan Juarez, Perro, Mediano, Si, 0-3, Extrovertida, Activa, 0-599
+Oscar Lopez, Perro, Grande, No, 0-3, Extrovertida, Tranquila, 600-1099
+Anahi Hernandez, Perro, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
+Carlos Calderon, Perro, Mediano, No, 0-3, Extrovertida, Activa, 600-1099
+Diego Castaneda, No, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
+Gabriel Brolo, Perro, Mediano, No, 0-3, Extrovertida, Tranquila, 600-1099
+Maria de los Angeles Lopez, Perro, Mediano, No, 4-7, Extrovertida, Activa, 600-1099
+Javier Anleu, Perro, Mediano, No, 4-7, Extrovertida, Activa, 0-599
+Gabriela Dorantes, Perro, Mediano, Si, 8-11, Introvertida, Tranquila, 0-599
+Erick Rios, Perro, Mediano, No, 4-7, Extrovertida, Tranquila, 600-1099
+Juan Rios, Perro, Mediano, No, 8-11, Extrovertida, Activa, 600-1099
+Ligia Rios, Perro, Mediano, No, 4-7, Introvertida, Tranquila, 600-1099
+Sebastian Rios, Otro, Grande, No, 4-7, Extrovertida, Tranquila, 600-1099
+Manolo Calderon, Perro, Mediano, Si, 4-7, Introvertida, Activa, 600-1099
+Luis Esturban, No, Pequeno, No, 0-3, Introvertida, Tranquila, 600-1099
+Guillermo Sandoval, Perro, Mediano, No, 0-3, Introvertida, Activa, 0-599
+Javier Carpio, Perro, Grande, No, 0-3, Introvertida, Activa, 600-1099
+Walter Florian, Gato, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
+Carlos Flores, Perro, Mediano, Si, 0-3, Introvertida, Activa, 0-599
+Alejandro Tejada, Perro, Mediano, No, 0-3, Introvertida, Activa, 0-599
+Francisco Molina, Perro, Mediano, No, 4-7, Extrovertida, Activa, 0-599
+Jose Cifuentes, Perro, Mediano, No, 8-11, Extrovertida, Tranquila, 600-1099
+Oscar Juarez, Perro, Mediano, Si, 0-3, Introvertida, Tranquila, 600-1099
+David Soto, Otro, Mediano, No, 8-11, Extrovertida, Activa, 1100 o más
+Josue Lopez, Perro, Pequeno, No, 4-7, Introvertida, Tranquila, 0-599
+Rodrigo Arriaza, Perro, Pequeno, No, 0-3, Extrovertida, Tranquila, 600-1099
+Katherine Chacon, Perro, Mediano, No, 0-3, Extrovertida, Tranquila, 600-1099
+Merilyn Morales, Gato, Mediano, No, 4-7, Introvertida, Tranquila, 0-599
+Andrea Golcher, Perro, Pequeno, No, 0-3, Extrovertida, Tranquila, 0-599

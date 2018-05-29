@@ -41,37 +41,37 @@ alergia = driver.labels.create("Alergia")
 #para agregar los nodos del presupuestos
 def add_presu():
     for i in rangoPresu:
-        pres = driver.nodes.create(i)
+        pres = driver.nodes.create(Nombre=i)
         presupuesto.add(pres)
 
 #agregar un Si o un No para hacer las relaciones de si tiene niños pequeños
 def add_ninos():
     for i in ninosPeques:
-        nn = driver.nodes.crate(i)
+        nn = driver.nodes.crate(Nombre=i)
         ninos.add(nn)
 
 #Agregar nodos de rango de tiempo que le puede dedicar por semana
 def add_tiempo():
     for i in hrSemana:
-        tt = driver.nodes.create(i)
+        tt = driver.nodes.create(Nombre=i)
         tiempo.add(tt)
 
 #agregar los nodos de personalidad (extrovertido o introvertido) para la personalidad de usuario
 def add_personalidad():
     for i in personalidad:
-        pp = driver.nodes.create(i)    #seria bueno tal vez ponerle otro nombre pero la mera verdad no se me ocurre
+        pp = driver.nodes.create(Nombre=i)    #seria bueno tal vez ponerle otro nombre pero la mera verdad no se me ocurre
         personalidad.add(pp)
 
 #agregar un Si o un No de si tiene alergia el usuario o si el animal genera  o no alergias
 def add_alergia():
     for i in ninosPeques:
-        al = driver.nodes.create(i)
+        al = driver.nodes.create(Nombre=i)
         alergia.add(al)
 
 #agregar un nodo de activo o inactivo para el tipo de mascota
 def add_tipoM():
     for i in tipoMas():
-        tipo = driver.nodes.create(i)
+        tipo = driver.nodes.create(Nombre=i)
         tipoMas.add(tipo)
 
 def add_preusuarios():
@@ -92,6 +92,14 @@ def add_preusuarios():
         print(users[8])
         ul = driver.nodes.create(Nombre=users[0], Tenido=users[1], Espacio=users[2], Ninos=users[3], Tiempo=users[4], Personalidad=users[5], Tipo=users[6], Presupuesto=users[7], Alergia=users[8])
         usuario.add(ul)
+        haTenido(users[0], users[1])
+        espacio(users[0], users[2])
+        prefMas(users[0], users[6])
+        relacionPresupuesto(users[0], users[7])
+        relacionNinos(users[0], users[3])
+        relacionUA(users[0], users[8])
+        personalidadUsuario(users[0], users[5])
+        tiempoUsers(users[0], users[4])
 
 def add_animal():
     archivo = open("animales.txt", "r")  #esto es supositorio (el nombre)
@@ -101,13 +109,13 @@ def add_animal():
         animales = lineas.split(", ")
         an = driver.nodes.create(Nombre=animales[0], Presupuesto=animales[1], Alergia=animales[2], Espacio=animales[3], Ninos=animales[4], Tiempo=animales[5], Personalidad=animales[6], Tipo=animales[7])
         animal.add(an)
-        esMascota(an, animales[7])
-        relacionAA(an, animales[2])
-        presupuestoAni(an, animales[1])
-        espacioAni(an, animales[3])
-        amigable(an, animales[4])
-        tiempoAni(an, animales[5])
-        personalidadAni(an, animales[6])
+        esMascota(animales[0], animales[7])
+        relacionAA(animales[0], animales[2])
+        presupuestoAni(animales[0], animales[1])
+        espacioAni(animales[0], animales[3])
+        amigable(animales[0], animales[4])
+        tiempoAni(animales[0], animales[5])
+        personalidadAni(animales[0], animales[6])
 
         
 
@@ -131,7 +139,7 @@ def add_usuario(nombre, tenido, espacio, ninos, tiempo, personalidad, tipo, pres
 
 
 def esMascota(animal, tipo):
-    q = 'MATCH (u:Animal), (s:TipoM) WHERE u.Nombre=\"'+ animal +'\" AND s.Tipo=\"'+ tipo +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:TipoM) WHERE u.Nombre=\"'+ animal +'\" AND s.Nombre=\"'+ tipo +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         a = i[0]
@@ -140,7 +148,7 @@ def esMascota(animal, tipo):
 
 
 def relacionAA(animal, alergia):
-    q = 'MATCH (u:Animal), (s:Alergia) WHERE u.Nombre=\"'+ animal +'\" AND s.Alergia=\"'+ alergia +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:Alergia) WHERE u.Nombre=\"'+ animal +'\" AND s.Nombre=\"'+ alergia +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         a = i[0]
@@ -148,7 +156,7 @@ def relacionAA(animal, alergia):
         a.relationships.create("Genera_alergia", al)
 
 def presupuestoAni(animal, presupuesto):
-    q = 'MATCH (u:Animal), (s:Presupuesto) WHERE u.Nombre=\"'+ animal +'\" AND s.Presupuesto=\"'+ presupuesto +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:Presupuesto) WHERE u.Nombre=\"'+ animal +'\" AND s.Nombre=\"'+ presupuesto +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -156,7 +164,7 @@ def presupuestoAni(animal, presupuesto):
         a.relationships.create("Presupuesto_animal", pre)
 
 def espacioAni(animal, espacio):
-    q = 'MATCH (u:Animal), (s:Espacio) WHERE u.Nombre=\"'+ animal +'\" AND s.Espacio=\"'+ espacio +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:Espacio) WHERE u.Nombre=\"'+ animal +'\" AND s.Nombre=\"'+ espacio +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -164,7 +172,7 @@ def espacioAni(animal, espacio):
         u.relationships.create("Necesita_espacio", e)
 
 def amigable(animal, ninos):
-    q = 'MATCH (u:Animal), (s:Ninos) WHERE u.Nombre=\"'+ animal +'\" AND s.Ninos=\"'+ ninos +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:Ninos) WHERE u.Nombre=\"'+ animal +'\" AND s.Nombre=\"'+ ninos +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -172,7 +180,7 @@ def amigable(animal, ninos):
         u.relationships.create("Amigable_ninos", ni)
 
 def tiempoAni(animal, tiempo):
-    q = 'MATCH (u:Animal), (s:Tiempo) WHERE u.Nombre=\"'+ animal +'\" AND s.Tiempo=\"'+ tiempo +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:Tiempo) WHERE u.Nombre=\"'+ animal +'\" AND s.Nombre=\"'+ tiempo +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -180,7 +188,7 @@ def tiempoAni(animal, tiempo):
         a.relationships.create("Tiempo_animal", pre)
 
 def personalidadAni(animal, personalidad):
-    q = 'MATCH (u:Animal), (s:Personalidad) WHERE u.Nombre=\"'+ animal +'\" AND s.Tipo=\"'+ personalidad +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:Personalidad) WHERE u.Nombre=\"'+ animal +'\" AND s.Nombre=\"'+ personalidad +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -203,7 +211,7 @@ def haTenido(usuario, animal):
         
 #no cree los nodos de "Espacio" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def espacio(usuario, espacio):
-    q = 'MATCH (u:Usuario), (s:Espacio) WHERE u.Nombre=\"'+ usuario +'\" AND s.Espacio=\"'+ espacio +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:Espacio) WHERE u.Nombre=\"'+ usuario +'\" AND s.Nombre=\"'+ espacio +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -212,7 +220,7 @@ def espacio(usuario, espacio):
 
 #no cree los nodos de "TipoM" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def prefMas(usuario, tipo):
-    q = 'MATCH (u:Usuario), (s:TipoM) WHERE u.Nombre=\"'+ usuario +'\" AND s.Tipo=\"'+ tipo +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:TipoM) WHERE u.Nombre=\"'+ usuario +'\" AND s.Nombre=\"'+ tipo +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -221,7 +229,7 @@ def prefMas(usuario, tipo):
 
 #no cree los nodos de "Presupuesto" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def relacionPresupuesto(usuario, presupuesto):
-    q = 'MATCH (u:Usuario), (s:Presupuesto) WHERE u.Nombre=\"'+ usuario +'\" AND s.Presupuesto=\"'+ presupuesto +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:Presupuesto) WHERE u.Nombre=\"'+ usuario +'\" AND s.Nombre=\"'+ presupuesto +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -231,7 +239,7 @@ def relacionPresupuesto(usuario, presupuesto):
 
 #no cree los nodos de "Alergia" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def relacionUA(usuario, alergia):
-    q = 'MATCH (u:Usuario), (s:Alergia) WHERE u.Nombre=\"'+ usuario +'\" AND s.Alergia=\"'+ alergia +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:Alergia) WHERE u.Nombre=\"'+ usuario +'\" AND s.Nombre=\"'+ alergia +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -240,7 +248,7 @@ def relacionUA(usuario, alergia):
 
 #no cree los nodos de "Ninos" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def relacionNinos(usuario, ninos):
-    q = 'MATCH (u:Usuario), (s:Ninos) WHERE u.Nombre=\"'+ usuario +'\" AND s.Ninos=\"'+ ninos +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:Ninos) WHERE u.Nombre=\"'+ usuario +'\" AND s.Nombre=\"'+ ninos +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -248,7 +256,7 @@ def relacionNinos(usuario, ninos):
         u.relationships.create("Tiene_ninos", ni)
 
 def personalidadUsuario(usuario, personalidad):
-    q = 'MATCH (u:Usuario), (s:Personalidad) WHERE u.Nombre=\"'+ usuario +'\" AND s.Tipo=\"'+ personalidad +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:Personalidad) WHERE u.Nombre=\"'+ usuario +'\" AND s.Nombre=\"'+ personalidad +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -272,7 +280,7 @@ def relacionUU(usuario, usuario1):
     d1.relationships.create("CONOCE", p1)
 
 def tiempoUser(usuario, tiempo):
-    q = 'MATCH (u:Usuario), (s:Tiempo) WHERE u.Nombre=\"'+ usuario +'\" AND s.Tiempo=\"'+ tiempo +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:Tiempo) WHERE u.Nombre=\"'+ usuario +'\" AND s.Nombre=\"'+ tiempo +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
