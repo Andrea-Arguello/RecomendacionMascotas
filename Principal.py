@@ -12,7 +12,7 @@ ciclo = 0
 
 while(ciclo==0):
     
-    print ('\nQue desea hacer? \n>>1. Ingresar un doctor \n>>2. Ingresar un paciente \n>>3. Ingresar visita de un paciente a un doctor \n>>4. Consultar doctores por especialidad \n>>5. Ingresar relacion entre personas \n>>6. Buscar recomendacion del doctor para doctor con especialidad \n>>7. Buscar recomendacion de conocidos de doctor con especialidad \n>>8. Salir')
+    print ('\nQue desea hacer? \n>>1. ')
 
     entrada= raw_input(">>")
     print "\n**Usted ingreso: ", entrada,"**\n"
