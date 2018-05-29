@@ -13,25 +13,30 @@ import sys
 
 driver = GraphDatabase("http://localhost:7474", username="neo4j", password="mypassword")
 
-rangoPresu = ["Poco presupuesto", "Mediano presupuesto", "Alto presupuesto"]
+rangoPresuV = ["1", "2", "3"]
+rangoPresu = ["Poco presupuesto", "Regular presupuesto", "Alto presupuesto"]
+rangoEspacioV = ["1", "2", "3"]
 rangoEspacio = ["Pequeno", "Grande", "Moderado"]
+ninosPequesV = ["1","0"]
 ninosPeques = ["Si", "No"]
+hrSemanaV = ["0", "1", "2"]
 hrSemana = ["0-3", "4-7", "8-11"]
+personalidadV = ["1", "0"]
 personalidad = ["Extrovertida", "Introvertida"]
-tipoMas = ["Activa", "Inactiva"]
-
+tipoMases = ["Activo", "No activo"]
+tipoMasesV = ["1", "0"]
+alergias = ["Es alergico", "No es alergico"]
+alergiasV = ["1", "0"]
 
 usuario = driver.labels.create("Usuario")
 animal = driver.labels.create("Animal")
-tiempo = driver.labels.create("Tiempo")
-espacio = driver.labels.create("Espacio")
-presupuesto = driver.labels.create("Presupuesto")
-personalidad = driver.labels.create("Personalidad")
-tipoMas = driver.labels.create("TipoM")
-ninos = driver.labels.create("Ninos")
-personalidad = driver.labels.create("Personalidad")
-alergia = driver.labels.create("Alergia")
-
+tiempo = driver.labels.create("CaracteristicaTiempo")
+espacio = driver.labels.create("CaracteristicaEspacio")
+presupuesto = driver.labels.create("CaracteristicaPresupuesto")
+personalidades = driver.labels.create("CaracteristicaPersonalidad")
+tipoMas = driver.labels.create("CaracteristicaTipoM")
+ninos = driver.labels.create("CaracteristicaNinos")
+alergia = driver.labels.create("CaracteristicaAlergia")
 
 
 #------------------------------------------------------------------------------
@@ -40,38 +45,38 @@ alergia = driver.labels.create("Alergia")
 
 #para agregar los nodos del presupuestos
 def add_presu():
-    for i in rangoPresu:
-        pres = driver.nodes.create(i)
+    for i in range(len(rangoPresu)):
+        pres = driver.nodes.create(Nombre=rangoPresu[i], Valor= rangoPresuV[i])
         presupuesto.add(pres)
 
 #agregar un Si o un No para hacer las relaciones de si tiene niños pequeños
 def add_ninos():
-    for i in ninosPeques:
-        nn = driver.nodes.crate(i)
+    for i in range(len(ninosPeques)):
+        nn = driver.nodes.create(Nombre=ninosPeques[i], Valor= ninosPequesV[i])
         ninos.add(nn)
 
 #Agregar nodos de rango de tiempo que le puede dedicar por semana
 def add_tiempo():
-    for i in hrSemana:
-        tt = driver.nodes.create(i)
+    for i in range(len(hrSemana)):
+        tt = driver.nodes.create(Nombre=hrSemana[i], Valor=hrSemanaV[i])
         tiempo.add(tt)
 
 #agregar los nodos de personalidad (extrovertido o introvertido) para la personalidad de usuario
 def add_personalidad():
-    for i in personalidad:
-        pp = driver.nodes.create(i)    #seria bueno tal vez ponerle otro nombre pero la mera verdad no se me ocurre
-        personalidad.add(pp)
+    for i in range(len(personalidad)):
+        pp = driver.nodes.create(Nombre=personalidad[i], Valor= personalidadV[i])    #seria bueno tal vez ponerle otro nombre pero la mera verdad no se me ocurre
+        personalidades.add(pp)
 
 #agregar un Si o un No de si tiene alergia el usuario o si el animal genera  o no alergias
 def add_alergia():
-    for i in ninosPeques:
-        al = driver.nodes.create(i)
+    for i in range(len(alergias)):
+        al = driver.nodes.create(Nombre=alergias[i], Valor= alergiasV[i])
         alergia.add(al)
 
 #agregar un nodo de activo o inactivo para el tipo de mascota
 def add_tipoM():
-    for i in tipoMas():
-        tipo = driver.nodes.create(i)
+    for i in range(len(tipoMases)):
+        tipo = driver.nodes.create(Nombre=tipoMases[i], Valor= tipoMasesV[i])
         tipoMas.add(tipo)
 
 def add_preusuarios():
@@ -81,17 +86,15 @@ def add_preusuarios():
     archivo.close()
     for lineas in contenido:
         users = lineas.split(", ")
-        print(users[0])
-        print(users[1])
-        print(users[2])
-        print(users[3])
-        print(users[4])
-        print(users[5])
-        print(users[6])
-        print(users[7])
-        print(users[8])
         ul = driver.nodes.create(Nombre=users[0], Tenido=users[1], Espacio=users[2], Ninos=users[3], Tiempo=users[4], Personalidad=users[5], Tipo=users[6], Presupuesto=users[7], Alergia=users[8])
         usuario.add(ul)
+        prefMas(users[0], users[6])
+        relacionUA(users[0], users[8])
+        relacionPresupuesto(users[0], users[7])
+        espacio(users[0], users[2])
+        relacionNinos(users[0], users[3])
+        tiempoUser(users[0], users[4])
+        personalidadUsuario(users[0], users[5])
 
 def add_animal():
     archivo = open("animales.txt", "r")  #esto es supositorio (el nombre)
@@ -101,15 +104,15 @@ def add_animal():
         animales = lineas.split(", ")
         an = driver.nodes.create(Nombre=animales[0], Presupuesto=animales[1], Alergia=animales[2], Espacio=animales[3], Ninos=animales[4], Tiempo=animales[5], Personalidad=animales[6], Tipo=animales[7])
         animal.add(an)
-        esMascota(an, animales[7])
-        relacionAA(an, animales[2])
-        presupuestoAni(an, animales[1])
-        espacioAni(an, animales[3])
-        amigable(an, animales[4])
-        tiempoAni(an, animales[5])
-        personalidadAni(an, animales[6])
+        esMascota(animales[0], animales[7])
+        relacionAA(animales[0], animales[2])
+        presupuestoAni(animales[0], animales[1])
+        espacioAni(animales[0], animales[3])
+        amigable(animales[0], animales[4])
+        tiempoAni(animales[0], animales[5])
+        personalidadAni(animales[0], animales[6])
 
-        
+    
 
 #-------------------------------------------------------------------------------------------
 #----- CREACION DE NODOS EN TIEMPO DE EJECUCION ---------------------
@@ -131,7 +134,7 @@ def add_usuario(nombre, tenido, espacio, ninos, tiempo, personalidad, tipo, pres
 
 
 def esMascota(animal, tipo):
-    q = 'MATCH (u:Animal), (s:TipoM) WHERE u.Nombre=\"'+ animal +'\" AND s.Tipo=\"'+ tipo +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:CaracteristicaTipoM) WHERE u.Nombre=\"'+ animal +'\" AND s.Valor=\"'+ tipo +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         a = i[0]
@@ -140,7 +143,7 @@ def esMascota(animal, tipo):
 
 
 def relacionAA(animal, alergia):
-    q = 'MATCH (u:Animal), (s:Alergia) WHERE u.Nombre=\"'+ animal +'\" AND s.Alergia=\"'+ alergia +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:CaracteristicaAlergia) WHERE u.Nombre=\"'+ animal +'\" AND s.Valor=\"'+ alergia +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         a = i[0]
@@ -148,7 +151,7 @@ def relacionAA(animal, alergia):
         a.relationships.create("Genera_alergia", al)
 
 def presupuestoAni(animal, presupuesto):
-    q = 'MATCH (u:Animal), (s:Presupuesto) WHERE u.Nombre=\"'+ animal +'\" AND s.Presupuesto=\"'+ presupuesto +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:CaracteristicaPresupuesto) WHERE u.Nombre=\"'+ animal +'\" AND s.Valor=\"'+ presupuesto +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -156,7 +159,7 @@ def presupuestoAni(animal, presupuesto):
         a.relationships.create("Presupuesto_animal", pre)
 
 def espacioAni(animal, espacio):
-    q = 'MATCH (u:Animal), (s:Espacio) WHERE u.Nombre=\"'+ animal +'\" AND s.Espacio=\"'+ espacio +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:CaracteristicaEspacio) WHERE u.Nombre=\"'+ animal +'\" AND s.Valor=\"'+ espacio +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -164,7 +167,7 @@ def espacioAni(animal, espacio):
         u.relationships.create("Necesita_espacio", e)
 
 def amigable(animal, ninos):
-    q = 'MATCH (u:Animal), (s:Ninos) WHERE u.Nombre=\"'+ animal +'\" AND s.Ninos=\"'+ ninos +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:CaracteristicaNinos) WHERE u.Nombre=\"'+ animal +'\" AND s.Valor=\"'+ ninos +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -172,15 +175,15 @@ def amigable(animal, ninos):
         u.relationships.create("Amigable_ninos", ni)
 
 def tiempoAni(animal, tiempo):
-    q = 'MATCH (u:Animal), (s:Tiempo) WHERE u.Nombre=\"'+ animal +'\" AND s.Tiempo=\"'+ tiempo +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:CaracteristicaTiempo) WHERE u.Nombre=\"'+ animal +'\" AND s.Valor=\"'+ tiempo +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
         pre = i[1]
-        a.relationships.create("Tiempo_animal", pre)
+        u.relationships.create("Tiempo_animal", pre)
 
 def personalidadAni(animal, personalidad):
-    q = 'MATCH (u:Animal), (s:Personalidad) WHERE u.Nombre=\"'+ animal +'\" AND s.Tipo=\"'+ personalidad +'\" RETURN u,s'
+    q = 'MATCH (u:Animal), (s:CaracteristicaPersonalidad) WHERE u.Nombre=\"'+ animal +'\" AND s.Valor=\"'+ personalidad +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -194,7 +197,7 @@ def personalidadAni(animal, personalidad):
 
 #------ RELACIONES USUARIOS -----
 def haTenido(usuario, animal):
-    q = 'MATCH (u:Usuario), (s:Animal) WHERE u.Nombre=\"'+ usuario +'\" AND s.Nombre=\"'+ animal +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:CaracteristicaAnimal) WHERE u.Nombre=\"'+ usuario +'\" AND s.Valor=\"'+ animal +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -203,7 +206,7 @@ def haTenido(usuario, animal):
         
 #no cree los nodos de "Espacio" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def espacio(usuario, espacio):
-    q = 'MATCH (u:Usuario), (s:Espacio) WHERE u.Nombre=\"'+ usuario +'\" AND s.Espacio=\"'+ espacio +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:CaracteristicaEspacio) WHERE u.Nombre=\"'+ usuario +'\" AND s.Valor=\"'+ espacio +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -212,7 +215,7 @@ def espacio(usuario, espacio):
 
 #no cree los nodos de "TipoM" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def prefMas(usuario, tipo):
-    q = 'MATCH (u:Usuario), (s:TipoM) WHERE u.Nombre=\"'+ usuario +'\" AND s.Tipo=\"'+ tipo +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:CaracteristicaTipoM) WHERE u.Nombre=\"'+ usuario +'\" AND s.Valor=\"'+ tipo +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -221,17 +224,17 @@ def prefMas(usuario, tipo):
 
 #no cree los nodos de "Presupuesto" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def relacionPresupuesto(usuario, presupuesto):
-    q = 'MATCH (u:Usuario), (s:Presupuesto) WHERE u.Nombre=\"'+ usuario +'\" AND s.Presupuesto=\"'+ presupuesto +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:CaracteristicaPresupuesto) WHERE u.Nombre=\"'+ usuario +'\" AND s.Valor=\"'+ presupuesto +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
-        u = i[0]
+        a = i[0]
         pre = i[1]
         a.relationships.create("Presupuesto_usuario", pre)
 
 
 #no cree los nodos de "Alergia" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def relacionUA(usuario, alergia):
-    q = 'MATCH (u:Usuario), (s:Alergia) WHERE u.Nombre=\"'+ usuario +'\" AND s.Alergia=\"'+ alergia +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:CaracteristicaAlergia) WHERE u.Nombre=\"'+ usuario +'\" AND s.Valor=\"'+ alergia +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -240,7 +243,7 @@ def relacionUA(usuario, alergia):
 
 #no cree los nodos de "Ninos" porque como esos estan por default pensaba que los metieramos de una en neo4j de una con los atributos con este nombre
 def relacionNinos(usuario, ninos):
-    q = 'MATCH (u:Usuario), (s:Ninos) WHERE u.Nombre=\"'+ usuario +'\" AND s.Ninos=\"'+ ninos +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:Ninos) WHERE u.Nombre=\"'+ usuario +'\" AND s.Valor=\"'+ ninos +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -248,7 +251,7 @@ def relacionNinos(usuario, ninos):
         u.relationships.create("Tiene_ninos", ni)
 
 def personalidadUsuario(usuario, personalidad):
-    q = 'MATCH (u:Usuario), (s:Personalidad) WHERE u.Nombre=\"'+ usuario +'\" AND s.Tipo=\"'+ personalidad +'\" RETURN u,s'
+    q = 'MATCH (u:Usuario), (s:CaracteristicaPersonalidad) WHERE u.Nombre=\"'+ usuario +'\" AND s.Valor=\"'+ personalidad +'\" RETURN u,s'
     resultados = driver.query(q, returns=(client.Node, client.Node))
     for i in resultados:
         u = i[0]
@@ -302,12 +305,11 @@ def getConocidosUser(nombreUser):
         return conocidosL
 
 
-#-----------------------------------------------------------------------------
-# ------- METODO PARA PODER AGREGAR COSAS AL TXT PARA PODER USARLO COMO BASE DE DATOS ---------
-
-
-
+add_ninos()
+add_personalidad()
+add_alergia()
+add_tiempo()
+add_tipoM()
+add_presu()
 add_preusuarios()
-
-
-
+add_animal()
