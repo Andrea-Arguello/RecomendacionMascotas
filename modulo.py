@@ -74,21 +74,20 @@ def add_tipoM():
         tipoMas.add(tipo)
 
 def add_preusuarios():
-    #aqui se tendria que leer el archivo de texto de la base de datos de analu + el de la db de google
     archivo = open("users.txt", "r")  #esto es supositorio (el nombre)
     contenido = archivo.readlines()
     archivo.close()
     for lineas in contenido:
         users = lineas.split(", ")
         ul = driver.nodes.create(Nombre=users[0], Tenido=user[1], Espacio=users[2], Ninos=users[3], Tiempo=users[4], Personalidad=users[5], Tipo=users[6], Presupuesto=users[7], Alergia=users[8])
-        usuario.add(ul)
-        prefMas(ul, users[7])
-        relacionUA(ul, users[2])
-        relacionPresupuesto(ul, users[1])
-        espacio(ul, users[3])
-        relacionNinos(ul, users[4])
-        tiempoUser(ul, users[5])
-        personalidadUsuario(ul, users[6])
+        #usuario.add(ul)
+        #prefMas(ul, users[7])
+        #relacionUA(ul, users[2])
+        #relacionPresupuesto(ul, users[1])
+        #espacio(ul, users[3])
+        #relacionNinos(ul, users[4])
+        #tiempoUser(ul, users[5])
+        #personalidadUsuario(ul, users[6])
 
 def add_animal():
     archivo = open("animales.txt", "r")  #esto es supositorio (el nombre)
