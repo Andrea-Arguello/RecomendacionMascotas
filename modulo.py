@@ -294,6 +294,14 @@ def getConocidosUser(nombreUser):
         for r in conocidos:
             conocidosL.append(r[2]["Nombre"])
         return conocidosL
+
+
+#-----------------------------------------------------------------------------
+# ------- METODO PARA PODER AGREGAR COSAS AL TXT PARA PODER USARLO COMO BASE DE DATOS ---------
+def agregar(nombre, tenido, espacio, ninos, tiempo, personalidad, tipo, presupuesto, alergia):
+    archivo = open("users.txt", "a")
+    archivo.write(nombre + ", " + tenido + ", " + str(espacio) + ", " + str(ninos) + ", " + str(tiempo) + ", " + str(personalidad) + ", " + str(tipo) + ", " + str(presupuesto) + ", " + str(alergia)+ "\n")
+    archivo.close()
     
 
 
