@@ -35,14 +35,42 @@ while(ciclo==0):
         if(entrada=="1"):
             print "Responda a las siguientes preguntas de la manera mas honesta posible:"
             name = raw_input("Ingrese su nombre: ")
-            tenido=raw_input("Usted ha tenido una de las siguientes?:\n1.\n>")
-            espacio=raw_input("El espacio con el cual cuenta en su casa es:\n1. Grande\n2. Moderado\n3. Pequenio\n>")
-            ninos=raw_input("En su casa hay ninos pequenios?\n1. Si\n2. No\n>")
-            tiempo=raw_input("Cuanto tiempo semanal podria invertir en su mascota?\n1. \n>")
-            personalidad=raw_input("Usted considera que su personalidad es: \n1.'n>")
-            tipo=raw_input("")
-            presupuesto=raw_input("Usted cuenta con un presupuesto semanal para invertir en su mascota de:\n1. \n2. \3. \n>")
-            alergia=("Usted tiene algun tipo de alergia?\n1. \n2. \n>")
+            tenido=raw_input("Usted ha tenido una de las siguientes?:\n1.\n>") #HACE FALTA
+            
+            espacio=raw_input("El espacio con el cual cuenta en su casa es:\n1. Pequenio\n2. Grande\n3. Moderado\n>")
+            while not(espacio=="1" or espacio=="2" or espacio=="3"):
+                espacio=raw_input("Ingrese una opcion valida:\n1. Pequenio\n2. Grande\n3. Moderado\n>")
+            
+            ninos=raw_input("En su casa hay ninos pequenios?\n1. No\n2. Si\n>")
+            while not(ninos=="1" or ninos=="2"):
+                ninos=raw_input("Ingrese una opcion valida\nEn su casa hay ninos pequenios?\n1. No\n2. Si\n>")
+            ninos-- #lo coloca en 0 si es no y 1 si es si
+
+            tiempo=raw_input("Cuanto tiempo (en horas) semanal podria invertir en su mascota?\n1. 0-3\n2. 4-7\n3. 8-11\n>")
+            while not(tiempo=="1" or tiempo=="2" or tiempo=="3"):
+                tiempo=raw_input("Ingrese una opcion valida:\n1. 0-3\n2. 4-7\n3. 8-11\n>")
+            tiempo-- #lo coloca en 0, 1 y 2 respectivamente
+
+            personalidad=raw_input("Usted considera que su personalidad es: \n1. Introvertida\n2. Extrovertida\n>")
+            while not(personalidad=="1" or personalidad=="2"):
+                personalidad=raw_input("Ingrese una opcion valida\nUsted considera que su personalidad es: \n1. Introvertida\n2. Extrovertida\n>")
+            personalidad-- #lo coloca en 0 y 1
+
+            tipo=raw_input("Desea una mascota que sea:\n1. No activa (tranquila)\n2. Activa\n>")
+            while not(tipo=="1" or tipo=="2"):
+                alergia=raw_input("Ingrese una opcion valida\nDesea una mascota que sea:\n1. No activa (tranquila)\n2. Activa\n>")
+            tipo-- #lo coloca en 0 y 1
+
+            presupuesto=raw_input("Usted cuenta con un presupuesto semanal para invertir en su mascota de:\n1. Poco presupuesto \n2. Presupuesto regular \3. Alto presupuesto\n>")
+            while not(presupuesto=="1" or presupuesto=="2" or presupuesto=="3"):
+                presupuesto=raw_input("Ingrese una opcion valida:\n1. Poco presupuesto \n2. Presupuesto regular \3. Alto presupuesto\n>")
+            presupuesto-- #lo coloca en 0, 1 y 2 respectivamente
+
+            alergia=("Usted tiene algun tipo de alergia?\n1. No\n2. Si\n>")
+            while not(alergia=="1" or alergia=="2"):
+                alergia=raw_input("Ingrese una opcion valida\nUsted tiene algun tipo de alergia?\n1. No\n2. Si\n>")
+            alergia-- #lo coloca en 0 y 1
+
             user=add_usuario(name,tenido,espacio,ninos,tiempo,personalidad,tipo,presupuesto,alergia)
             print '**Su usuario ha sido ingresado. Espere mientras hallamos la mascota ideal para usted**\n'
             
