@@ -104,7 +104,6 @@ def add_preusuarios():
         #insertar aqui funcion para usuarios-mascotas (Tenido)
         experiencia = users[1].split(" y ")
         for animal in experiencia:
-            print(animal)
             haTenido(users[0], animal)
 
 def add_animal():
