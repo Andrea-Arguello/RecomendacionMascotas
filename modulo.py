@@ -315,12 +315,20 @@ def getConocidosUser(nombreUser):
             conocidosL.append(r[2]["Nombre"])
         return conocidosL
 
-add_espacio()
-add_ninos()
-add_personalidad()
-add_alergia()
-add_tiempo()
-add_tipoM()
-add_presu()
-add_preusuarios()
-add_animal() 
+def dbVacia():
+    vacia=False
+    q = 'MATCH (n) RETURN n'
+    busqueda=driver.query(q, returns=(client.Node,client.Node))
+    if len(busqueda)==0:
+        vacia=True
+    return vacia
+
+#add_espacio()
+#add_ninos()
+#add_personalidad()
+#add_alergia()
+#add_tiempo()
+#add_tipoM()
+#add_presu()
+#add_preusuarios()
+#add_animal() 
