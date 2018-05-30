@@ -143,7 +143,20 @@ while(ciclo==0):
 
             
         elif(entrada=="2"):
-            ## this aint work yet
+            car=raw_input("Seleccione la caracteristica que desea buscar: \n1. Alergias \t2. Tipo de mascota (activa o no) \t3. Tiempo \n4. Espacio \t5. Personalidad del dueno \t6. Presupuesto de manutencion \n7. Amigable con ninos\n>>")
+            #ahorita solo funciona por alergias
+            while not(car=="1" or car=="2" or car=="3" or car=="4" or car=="5" or car=="6" or car=="7"):
+                car=raw_input("Ingrese una opcion valida\n>>")
+            if(car=="1"):
+                al=raw_input("0. Para gente sin alergias \n1. Para gente con alergias\n>>")
+                while not (al=="1" or al=="0"):
+                    al=raw_input("Ingrese una opcion valida\n>>")
+                searchAlergias(al)
+            elif(car=="2"):
+                ac=raw_input("0. Mascota no activa \n1. Mascota activa\n>>")
+                while not (ac=="1" or ac=="0"):
+                    ac=raw_input("Ingrese una opcion valida\n>>")
+                searchActivo(ac)
             ciclo = 0
         elif(entrada=="3"):
             ciclo=0
