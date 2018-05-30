@@ -35,8 +35,73 @@ while(ciclo==0):
         if(entrada=="1"):
             print "Responda a las siguientes preguntas de la manera mas honesta posible:"
             name = raw_input("Ingrese su nombre: ")
-            tenido=raw_input("Usted ha tenido una de las siguientes?:\n1.\n>") #HACE FALTA
-            
+
+            tenido=raw_input("Usted ha tenido alguna mascota anteriormente? (Seleccione solo una opcion):\n1. Gatos \t2. Perros \t3. Aves \n4. Roedores \t5. Reptiles \t6. Conejos \n7. Tarantulas \t8. Peces \t9. Hurones \n10. Cerditos (mini piggies) \t11. No he tenido mascotas \n>")
+            while not (tenido=="1" or tenido=="2" or tenido=="3" or tenido=="4" or tenido=="5" or tenido=="6" or tenido=="7"  or tenido=="8" or tenido=="9"  or tenido=="10" or tenido=="11"):
+                tenido=raw_input("Ingrese una opcion valida")
+            if(tenido=="1"):
+                tenidoin="Gato"
+            elif(tenido=="2"):
+                tenidop=raw_input("Que tipo de perro? (seleccione solo una opcion):\n1. Grande\t2. Mediano \t3. Pequenio")
+                while not(tenidop=="1" or tenidop=="2" or tenidop=="3"):
+                    tenidop=raw_input("Ingrese una opcion valida para el tamanio de perro: \n1. Grande\t2. Mediano \t3. Pequenio")
+                if(tenidop=="1"):
+                    tenidoin="Perro grande"
+                elif(tenidop=="2"):
+                    tenidoin="Perro mediano"
+                elif(tenidop=="3"):
+                    tenidoin=="Perro pequeno"
+            elif(tenido=="3"):
+                tenidoa=raw_input("Cual de las siguientes aves ha tenido? (Seleccione solo una opcion): \n1. Pericos \t2. Loros \t3.Canarios \n4. Cotorras \t5. Pollos \t6. Agapornis (love birds)\n>")
+                while not(tenidoa=="1" or tenidoa=="2" or tenidoa=="3" or tenidoa=="4" or tenidoa=="5" or tenidoa=="6"):
+                    tenidoa=raw_input("Ingrese una opcion valida (de 1 a 6)\n>")
+                if(tenidoa=="1"):
+                    tenidoin="Perico"
+                elif(tenidoa=="2"):
+                    tenidoin="Loro"
+                elif(tenidoa=="3"):
+                    tenidoin="Canarios"
+                elif(tenidoa=="4"):
+                    tenidoin="Cotorras"
+                elif(tenidoa=="5"):
+                    tenidoin="Pollos"
+                elif(tenidoa=="6"):
+                    tenidoin="Agapornis"
+            elif(tenido=="4"):
+                tenidor=raw_input("Cual de los siguientes roedores ha tenido? (Seleccione solo una opcion): \n1. Hamsters \t2. Ratones \t3. Cuyos\n>")
+                while not(tenidor=="1" or tenidor=="2" or tenidor=="3"):
+                    tenidor=raw_input("Ingrese una opcion valida (de 1 a 3)\n>")
+                if(tenidor=="1"):
+                    tenidoin="Hamster"
+                elif(tenidor=="2"):
+                    tenidoin="Ratones"
+                elif(tenidor=="3"):
+                    tenidoin="Cuyos"
+            elif(tenido=="5"):
+                tenidos=raw_input("Cual de los siguientes reptiles ha tenido? (Seleccione solo una opcion): \n1. Tortugas \t2. Serpientes \n3. Lagartos \t4. Lagartijas\n>")
+                while not(tenidos=="1" or tenidos=="2" or tenidos=="3" or tenidos=="4"):
+                    tenidos=raw_input("Ingrese una opcion valida (de 1 a 4)\n>")
+                if(tenidos=="1"):
+                    tenidoin="Tortuga"
+                elif(tenidos=="2"):
+                    tenidoin="Serpiente"
+                elif(tenidos=="3"):
+                    tenidoin="Lagartos"
+                elif(tenidos=="4"):
+                    tenidoin="Lagartijas"
+            elif(tenido=="6"):
+                tenidoin=="Conejos"
+            elif(tenido=="7"):
+                tenidoin=="Tarantula"
+            elif(tenido=="8"):
+                tenidoin="Pez"
+            elif(tenido=="9"):
+                tenidoin="Urones"
+            elif(tenido=="10"):
+                tenidoin="Mini piggies"
+            elif(tenido=="11"):
+                 tenidoin="" #Le puse espacio porque no se que mas podria ponerle
+                    
             espacio=raw_input("El espacio con el cual cuenta en su casa es:\n1. Pequenio\n2. Grande\n3. Moderado\n>")
             while not(espacio=="1" or espacio=="2" or espacio=="3"):
                 espacio=raw_input("Ingrese una opcion valida:\n1. Pequenio\n2. Grande\n3. Moderado\n>")
@@ -71,7 +136,7 @@ while(ciclo==0):
                 alergia=raw_input("Ingrese una opcion valida\nUsted tiene algun tipo de alergia?\n1. No\n2. Si\n>")
             alergia-- #lo coloca en 0 y 1
 
-            user=add_usuario(name,tenido,espacio,ninos,tiempo,personalidad,tipo,presupuesto,alergia)
+            user=add_usuario(name,tenidoin,espacio,ninos,tiempo,personalidad,tipo,presupuesto,alergia)
             print '**Su usuario ha sido ingresado. Espere mientras hallamos la mascota ideal para usted**\n'
             
             ciclo = 0
