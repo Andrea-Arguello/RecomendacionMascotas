@@ -94,17 +94,16 @@ def add_preusuarios():
         users = lineas.split(", ")
         ul = driver.nodes.create(Nombre=users[0], Tenido=users[1], Espacio=users[2], Ninos=users[3], Tiempo=users[4], Personalidad=users[5], Tipo=users[6], Presupuesto=users[7], Alergia=users[8])
         usuario.add(ul)
-        prefMas(users[0], users[6]) #Tipo (activa) ++
-        relacionUA(users[0], users[8]) #usuario-alergia ++
-        relacionPresupuesto(users[0], users[7]) #presupuesto ++
-        espacio(users[0], users[2]) #espacio ++
-        relacionNinos(users[0], users[3]) #tiene ninos ++
-        tiempoUser(users[0], users[4]) #tiempo disponible ++
-        personalidadUsuario(users[0], users[5]) #extrovertida introvertida  ++
-        #insertar aqui funcion para usuarios-mascotas (Tenido)
+        prefMas(users[0], users[6])
+        relacionUA(users[0], users[8])
+        relacionPresupuesto(users[0], users[7])
+        espacio(users[0], users[2]) 
+        relacionNinos(users[0], users[3])
+        tiempoUser(users[0], users[4])
+        personalidadUsuario(users[0], users[5]) 
         experiencia = users[1].split(" y ")
-        for animal in experiencia:
-            haTenido(users[0], animal)
+        for mascota in experiencia:
+            haTenido(users[0], mascota)
 
 def add_animal():
     archivo = open("animales.txt", "r")  
@@ -127,11 +126,28 @@ def add_animal():
 #-------------------------------------------------------------------------------------------
 #----- CREACION DE NODOS EN TIEMPO DE EJECUCION ---------------------
     
-def add_usuario(nombre, tenido, espacio, ninos, tiempo, personalidad, tipo, presupuesto, alergia):
-    u1 = driver.nodes.create(Nombre=nombre)
-    usuarios.add(u1)
+def add_usuario(nombre, tenido, space, ninos, tiempo, personalidad, tipo, presupuesto, alergia):
+    # tenido sera un array
+    experiencia ="" #el array se traslada a un string que se guarda en el txt
+    for i in tenido:
+        if (len(tenido)!=1 or i != (tenido[len(tenido)-1])):
+            experiencia += i + " y "
+        else:
+            experiencia += i
+        
+    u1 = driver.nodes.create(Nombre=nombre, Tenido=experiencia, Espacio=space, Ninos=ninos, Tiempo=tiempo, Personalidad=personalidad, Tipo=tipo, Presupuesto=presupuesto, Alergia=alergia)
+    usuario.add(u1)
+    prefMas(nombre, str(tipo))
+    relacionUA(nombre, str(alergia))
+    relacionPresupuesto(nombre, str(presupuesto))
+    espacio(nombre, str(space))
+    relacionNinos(nombre, str(ninos))
+    tiempoUser(nombre, str(tiempo))
+    personalidadUsuario(nombre, str(personalidad))
+    for mascota in tenido:
+        haTenido(nombre, mascota)
     archivo = open("users.txt", "a")
-    archivo.write(nombre + ", " + tenido + ", " + str(espacio) + ", " + str(ninos) + ", " + str(tiempo) + ", " + str(personalidad) + ", " + str(tipo) + ", " + str(presupuesto) + ", " + str(alergia)+ "\n")
+    archivo.write(nombre + ", " + experiencia + ", " + str(space) + ", " + str(ninos) + ", " + str(tiempo) + ", " + str(personalidad) + ", " + str(tipo) + ", " + str(presupuesto) + ", " + str(alergia)+ ", "+"\n")
     archivo.close()
     return u1
 
@@ -290,7 +306,7 @@ def tiempoUser(usuario, tiempo):
     for i in resultados:
         u = i[0]
         pre = i[1]
-        u.relationships.create("Tiempo", pre)
+        u.relationships.create("Tiempo_disponible", pre)
 
 
 
@@ -323,12 +339,3 @@ def dbVacia():
         vacia=True
     return vacia
 
-#add_espacio()
-#add_ninos()
-#add_personalidad()
-#add_alergia()
-#add_tiempo()
-#add_tipoM()
-#add_presu()
-#add_preusuarios()
-#add_animal() 

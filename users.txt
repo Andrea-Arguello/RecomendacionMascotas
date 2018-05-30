@@ -1,34 +1,34 @@
-Marcos Gutierrez, Perro mediano, 1, 0, 1, 0, 0, 1, 0
+Marcos Gutierrez, Perro mediano y Gato, 1, 0, 1, 0, 0, 1, 0
 Jonathan Juarez, Perro mediano, 2, 1, 0, 1, 1, 1, 0
 Oscar Lopez, Perro mediano, 3, 0, 0, 1, 0, 2, 0
 Anahi Hernandez, Perro mediano, 2, 0, 1, 0, 0, 1, 0
-Carlos Calderon, Perro mediano, 2, 0, 0, 1, 1, 2, 0
+Carlos Calderon, Perro pequeno y Gato, 2, 0, 0, 1, 1, 2, 0
 Diego Castaneda, Urones, 2, 0, 1, 0, 0, 1, 0
 Gabriel Brolo, Perro mediano, 2, 0, 0, 1, 0, 2, 0
 Marielos Lopez, Perro mediano, 2, 0, 1, 1, 1, 2, 1
 Javier Anleu, Perro mediano, 2, 0, 1, 1, 1, 1, 0
-Gabriela Dorantes, Perro mediano, 2, 1, 2, 0, 0, 1, 0
+Gabriela Dorantes, Perro pequeno y Pez, 2, 1, 2, 0, 0, 1, 0
 Erick Rios, Perro mediano, 2, 0, 1, 1, 0, 2, 0
 Juan Rios, Perro mediano, 2, 0, 2, 1, 1, 2, 0
-Ligia Rios, Perro mediano, 2, 0, 1, 0, 0, 2, 0
-Sebastian Rios, Urones, 3, 0, 1, 1, 0, 2, 0
+Ligia Rios, Perro mediano y Canarios y Hamster, 2, 0, 1, 0, 0, 2, 0
+Sebastian Rios, Urones y Pez, 3, 0, 1, 1, 0, 2, 0
 Manolo Calderon, Perro mediano, 2, 1, 1, 0, 1, 2, 0
 Luis Esturban, Pez, 1, 0, 0, 0, 0, 2, 0
-Guillermo Sandoval, Perro mediano, 2, 0, 0, 0, 1, 1, 1
+Guillermo Sandoval, Perro mediano y Pez, 2, 0, 0, 0, 1, 1, 1
 Javier Carpio, Perro mediano, 3, 0, 0, 0, 1, 2, 1, 
-Walter Florian, Gato, 2, 0, 1, 0, 0, 1, 1, 
+Walter Florian, Gato y Cotorras, 2, 0, 1, 0, 0, 1, 1, 
 Carlos Flores, Perro mediano, 2, 1, 0, 0, 1, 1, 1, 
-Alejandro Tejada, Perro mediano, 2, 0, 0, 0, 1, 1, 0, 
-Francisco Molina, Perro mediano, 2, 0, 1, 1, 1, 1, 0, 
-Jose Cifuentes, Perro mediano, 2, 0, 2, 1, 0, 2, 0, 
+Alejandro Tejada, Perro mediano y Tortuga, 2, 0, 0, 0, 1, 1, 0, 
+Francisco Molina, Loro y Tortuga, 2, 0, 1, 1, 1, 1, 0, 
+Jose Cifuentes, Perro mediano y Canarios, 2, 0, 2, 1, 0, 2, 0, 
 Oscar Juarez, Perro mediano, 2, 1, 0, 0, 0, 2, 0, 
 David Soto, Pez, 2, 0, 2, 1, 1, 3, 0, 
 Josue Lopez, Perro mediano, 1, 0, 1, 0, 0, 1, 0, 
-Rodrigo Arriaza, Perro mediano, 1, 0, 0, 1, 0, 2, 0, 
+Rodrigo Arriaza, Perro grande y Perico y Tortuga, 1, 0, 0, 1, 0, 2, 0, 
 Katherine Chacon, Perro mediano, 2, 0, 0, 1, 0, 2, 0, 
 Merilyn Morales, Gato, 2, 0, 1, 0, 0, 1, 1, 
-Andrea Golcher, Perro mediano, 1, 0, 0, 1, 0, 1, 1, 
-Maria Fernanda, Perro pequeno, 1, 1, 0, 1, 1, 1, 1, 
+Andrea Golcher, Perro mediano y Tarantula, 1, 0, 0, 1, 0, 1, 1, 
+Maria Fernanda, Perro pequeno y Perro grande, 1, 1, 0, 1, 1, 1, 1, 
 Andrea Arguello, Gato, 3, 0, 1, 0, 1, 0, 0, 
 Ana Hernandez, Loro y Pollos y Perro mediano y Perro grande, 2, 1, 2, 1, 1, 0, 1, 
 Mario Boleres, -, 3, 1, 2, 1, 1, 2, 1, 
@@ -43,4 +43,5 @@ Julio Montenegro, Perro mediano, 3, 0, 1, 1, 0, 0, 0,
 Francisco Marroquin, -, 1, 1, 2, 1, 0, 1, 1, 
 Carlos Pozuelos, Perro mediano y Perro pequeno y Gato, 2, 0, 0, 1, 1, 1, 0, 
 Nicolas Sumich, Perro grande y Perro pequeno y Pez y Tortuga, 1, 0, 2, 1, 1, 1, 0, 
-Daniel Diaz, Perro mediano y Perro pequeno y Gato y Pez, 3, 1, 0, 1, 1, 1, 1, 
+Daniel Diaz, Perro mediano y Perro pequeno y Gato y Pez, 3, 1, 0, 1, 1, 1, 1,
+Maria Contreras, Gato y Pez y , 2, 1, 1, 1, 1, 2, 1, 
