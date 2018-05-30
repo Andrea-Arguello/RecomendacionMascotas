@@ -105,7 +105,7 @@ while(ciclo==0):
                     
             espacio=raw_input("El espacio con el cual cuenta en su casa es:\n1. Pequenio\n2. Grande\n3. Moderado\n>")
             while not(espacio=="1" or espacio=="2" or espacio=="3"):
-                espacio=raw_input("Ingrese una opcion valida:\n1. Pequenio\n2. Grande\n3. Moderado\n>")
+                espacio=raw_input("Ingrese una opcion valida:\n1. Pequenio\n2. Moderado\n3. Grande\n>")
             
             ninos=raw_input("En su casa hay ninos pequenios?\n1. No\n2. Si\n>")
             while not(ninos=="1" or ninos=="2"):
@@ -140,6 +140,8 @@ while(ciclo==0):
             print '**Su usuario ha sido ingresado. Espere mientras hallamos la mascota ideal para usted**\n'
             
             ciclo = 0
+
+            
         elif(entrada=="2"):
             ## this aint work yet
             ciclo = 0

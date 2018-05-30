@@ -16,7 +16,7 @@ driver = GraphDatabase("http://localhost:7474", username="neo4j", password="mypa
 rangoPresuV = ["0", "1", "2"]
 rangoPresu = ["Poco presupuesto", "Regular presupuesto", "Alto presupuesto"]
 rangoEspacioV = ["1", "2", "3"]
-rangoEspacio = ["Pequeno", "Grande", "Moderado"]
+rangoEspacio = ["Pequeno", "Moderado", "Grande"]
 ninosPequesV = ["1","0"]
 ninosPeques = ["Si", "No"]
 hrSemanaV = ["0", "1", "2"]
@@ -338,4 +338,38 @@ def dbVacia():
     if len(busqueda)==0:
         vacia=True
     return vacia
+
+#-------------------------------------------------------------------------------------------------------------
+#----------- RECOMENDACIONES ---------------
+
+def getMascotaR(nombre, tenido, space, ninos, tiempo, personalidad, tipo, presupuesto, alergia):
+    user=add_usuario(nombre, tenido, space, ninos, tiempo, personalidad, tipo, presupuesto, alergia)
+    
+    recomendados=[] #lista de mascotas
+
+    qAlergy= 'MATCH (u:Animal)-[r:Puede_estar_con_alguien_que]->(m:CaraacteristicaAlergia) WHERE m.Valor=\"'+alergia+'\" RETURN u'
+    porAlergia=driver.query(qAlergy,returns=(client.Node,str,client.Node))
+
+    qActivo='MATCH (u:Animal)-[r:Es_una_mascota]->(m:CaracteristicaTipoM) WHERE m.Valor=\"'+tipo+'\" RETURN u'
+    porActivo=driver.query(qActivo,returns=(client.Node,str,client.Node))
+    
+    qTime = 'MATCH (u:Animal)-[r:Cantidad_de_tiempo_que_necesitan]->(m:CaracteristicaTiempo) WHERE m.Valor=\"'+tiempo+'\" RETURN u'
+    porTiempo=driver.query(qTime, returns=(client.Node,str,client.Node))
+
+    qSpace='MATCH (u:Animal)-[r:Cantidad_de_espacio_que_necesitan]->(m:CaracteristicaEspacio) WHERE m.Valor=\"'+space+'\" RETURN u'
+    porEspacio=driver.query(qSpace,returns=(client.Node,str,client.Node))
+
+    qPersonality='MATCH (u:Animal)-[r:Recomendable_para_una_persona]->(m:CaracteristicaPersonalidad) WHERE m.Valor=\"'+personalidad+'\" RETURN u'
+    porPersonalidad=driver.query(qPersonality,returns=(client.Node,str,client.Node))
+    
+    qMoney='MATCH (u:Animal)-[r:Costo_mensual_de_manutencion]->(m:CaracteristicaPresupuesto) WHERE m.Valor=\"'+presupuesto+'\" RETURN u'
+    porDinero=driver.query(qMoney,returns=(client.Node,str,client.Node))
+
+    qKids='MATCH (u:Animal)-[r:Pueden_estar_en_un_hogar_que]->(m:CaracteristicaNinos) WHERE m.Valor=\"'+ninos+'\" RETURN u'
+    porNinos=driver.query(qKids,returns=(client.Node,str,client.Node))
+
+    qPrevious='MATCH (u:Usuario)-[r:Ha_Tenido]->(s:Animal) WHERE u.Nombre=\"'+nombre+'\" RETURN s'
+    yaHaTenido=driver.query(qPrevious,returns=(client.Node,str,client.Node))
+
+    
 
