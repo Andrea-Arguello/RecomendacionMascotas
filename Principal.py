@@ -139,12 +139,14 @@ while(ciclo==0):
                 alergia= int(alergia)-1 #lo coloca en 0 y 1
 
                 user=add_usuario(name,tenidoin,espacio,ninos,tiempo,personalidad,tipo,presupuesto,alergia)
-                getMascotaR(str(name), str(tenidoin), str(espacio), str(ninos), str(tiempo), str(personalidad), str(tipo), str(presupuesto), str(alergia))
                 print '**Su usuario ha sido ingresado. Espere mientras hallamos la mascota ideal para usted**\n'
+                getMascotaR(str(name), str(tenidoin), str(espacio), str(ninos), str(tiempo), str(personalidad), str(tipo), str(presupuesto), str(alergia))
+                
                 
                 ciclo = 0
             else:
-                print "Usted ya ha sido ingresado previamente. Solo aceptamos nuevos usuarios."
+                print "Usted ya ha sido ingresado previamente. Su recomendacion fue:"
+                getUser(name)
                 ciclo = 0
             
         elif(entrada=="2"):

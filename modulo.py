@@ -327,9 +327,17 @@ def getConocidosUser(nombreUser):
 
 def getUser(nombre):
     q = 'MATCH (u:Usuario) WHERE u.Nombre=\"'+nombre+'\" RETURN u'
-    usuarios=driver.query(1,returns=(client.Node))
+    usuarios=driver.query(q,returns=(client.Node))
     for i in usuarios:
-        return i[0]["Nombre"]
+        personalidad= i[0]["Personalidad"]
+        presupuesto= i[0]["Presupuesto"]
+        alerg=i[0]["Alergia"]
+        esp=i[0]["Espacio"]
+        nin=i[0]["Ninos"]
+        time=i[0]["Tiempo"]
+        tip=i[0]["Tipo"]
+        getMascotaR(nombre,"",esp,nin,time,personalidad,tip,presupuesto,alerg)
+        
 
 def usuarioExiste(nombre):
     existe=True
