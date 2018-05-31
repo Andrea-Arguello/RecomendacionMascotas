@@ -16,7 +16,7 @@ driver = GraphDatabase("http://localhost:7474", username="neo4j", password="mypa
 rangoPresuV = ["0", "1", "2"]
 rangoPresu = ["Poco presupuesto", "Regular presupuesto", "Alto presupuesto"]
 rangoEspacioV = ["1", "2", "3"]
-rangoEspacio = ["Pequeno", "Grande", "Moderado"]
+rangoEspacio = ["Pequeno", "Moderado", "Grande"]
 ninosPequesV = ["1","0"]
 ninosPeques = ["Si", "No"]
 hrSemanaV = ["0", "1", "2"]
