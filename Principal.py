@@ -137,6 +137,7 @@ while(ciclo==0):
             alergia= int(alergia)-1 #lo coloca en 0 y 1
 
             user=add_usuario(name,tenidoin,espacio,ninos,tiempo,personalidad,tipo,presupuesto,alergia)
+            getMascotaR(str(name), str(tenidoin), str(espacio), str(ninos), str(tiempo), str(personalidad), str(tipo), str(presupuesto), str(alergia))
             print '**Su usuario ha sido ingresado. Espere mientras hallamos la mascota ideal para usted**\n'
             
             ciclo = 0

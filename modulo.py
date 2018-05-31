@@ -9,6 +9,7 @@ from neo4jrestclient.client import GraphDatabase
 from neo4jrestclient import client
 import openpyxl
 import sys
+import collections
 
 
 driver = GraphDatabase("http://localhost:7474", username="neo4j", password="mypassword")
@@ -309,13 +310,6 @@ def tiempoUser(usuario, tiempo):
         u.relationships.create("Tiempo_disponible", pre)
 
 
-
-#parcialmente terminado
-def registrarInfo(usuario, ninos, tiempo, espacio, tipo, personalidad, alergia, presupuesto):
-    relacionNinos(usuarion, ninos)
-    relacionUA(usuario, alergia)
-
-
 #-------------------------------------------------------------------------------------------------------------
 
 
@@ -325,7 +319,7 @@ def getConocidosUser(nombreUser):
     q = 'MATCH (u:Usuario)-[r:Conoce]->(m:Paciente) WHERE u.Nombre=\"'+ nombreUser +'\" RETURN u, type(r), m'
     conocidos = driver.query(q, returns=(client.Node, str, client.Node))
     if len(conocidos) ==0:
-        print("\n-----> La persona que ingreso no tiene conocidos o no existe :(")
+        print("\n-----> La persona que ingreso no tiene conocidos o no existe")
     else:
         for r in conocidos:
             conocidosL.append(r[2]["Nombre"])
@@ -343,60 +337,54 @@ def dbVacia():
 #----------- RECOMENDACIONES ---------------
 
 def getMascotaR(nombre, tenido, space, ninos, tiempo, personalidad, tipo, presupuesto, alergia):
-    user=add_usuario(nombre, tenido, space, ninos, tiempo, personalidad, tipo, presupuesto, alergia)
     
     recomendados=[] #lista de mascotas
 
-    qAlergy= 'MATCH (u:Animal)-[r:Puede_estar_con_alguien_que]->(m:CaraacteristicaAlergia) WHERE m.Valor=\"'+alergia+'\" RETURN u'
-    porAlergia=driver.query(qAlergy,returns=(client.Node,str,client.Node))
+    qAlergy= 'MATCH (u:Animal)-[r:Puede_estar_con_alguien_que]->(m:CaracteristicaAlergia) WHERE m.Valor=\"'+alergia+'\" RETURN u'
+    porAlergia=driver.query(qAlergy,returns=(client.Node))
+    for i in porAlergia:
+        recomendados.append(i[0]["Nombre"])
 
     qActivo='MATCH (u:Animal)-[r:Es_una_mascota]->(m:CaracteristicaTipoM) WHERE m.Valor=\"'+tipo+'\" RETURN u'
-    porActivo=driver.query(qActivo,returns=(client.Node,str,client.Node))
+    porActivo=driver.query(qActivo,returns=(client.Node))
+    for j in porActivo:
+        recomendados.append(j[0]["Nombre"])
     
     qTime = 'MATCH (u:Animal)-[r:Cantidad_de_tiempo_que_necesitan]->(m:CaracteristicaTiempo) WHERE m.Valor=\"'+tiempo+'\" RETURN u'
-    porTiempo=driver.query(qTime, returns=(client.Node,str,client.Node))
+    porTiempo=driver.query(qTime, returns=(client.Node))
+    for h in porTiempo:
+        recomendados.append(h[0]["Nombre"])
+                            
 
     qSpace='MATCH (u:Animal)-[r:Cantidad_de_espacio_que_necesitan]->(m:CaracteristicaEspacio) WHERE m.Valor=\"'+space+'\" RETURN u'
-    porEspacio=driver.query(qSpace,returns=(client.Node,str,client.Node))
+    porEspacio=driver.query(qSpace,returns=(client.Node))
+    for k in porEspacio:
+        recomendados.append(k[0]["Nombre"])
+    
 
     qPersonality='MATCH (u:Animal)-[r:Recomendable_para_una_persona]->(m:CaracteristicaPersonalidad) WHERE m.Valor=\"'+personalidad+'\" RETURN u'
-    porPersonalidad=driver.query(qPersonality,returns=(client.Node,str,client.Node))
+    porPersonalidad=driver.query(qPersonality,returns=(client.Node))
+    for x in porPersonalidad:
+        recomendados.append(x[0]["Nombre"])
     
     qMoney='MATCH (u:Animal)-[r:Costo_mensual_de_manutencion]->(m:CaracteristicaPresupuesto) WHERE m.Valor=\"'+presupuesto+'\" RETURN u'
-    porDinero=driver.query(qMoney,returns=(client.Node,str,client.Node))
+    porDinero=driver.query(qMoney,returns=(client.Node))
+    for l in porDinero:
+        recomendados.append(l[0]["Nombre"])
 
     qKids='MATCH (u:Animal)-[r:Pueden_estar_en_un_hogar_que]->(m:CaracteristicaNinos) WHERE m.Valor=\"'+ninos+'\" RETURN u'
-    porNinos=driver.query(qKids,returns=(client.Node,str,client.Node))
+    porNinos=driver.query(qKids,returns=(client.Node))
+    for m in porNinos:
+        recomendados.append(m[0]["Nombre"])
 
     qPrevious='MATCH (u:Usuario)-[r:Ha_Tenido]->(s:Animal) WHERE u.Nombre=\"'+nombre+'\" RETURN s'
-    yaHaTenido=driver.query(qPrevious,returns=(client.Node,str,client.Node))
+    yaHaTenido=driver.query(qPrevious,returns=(client.Node))
+    for n in porTiempo:
+        recomendados.append(n[0]["Nombre"])
 
-def searchAlergias(alergia):
-    qAlergy= 'MATCH (u:Animal)-[r:Puede_estar_con_alguien_que]->(m:CaraacteristicaAlergia) WHERE m.Valor=\"'+alergia+'\" RETURN u'
-    porAlergia=driver.query(qAlergy,returns=(client.Node,str,client.Node))
-    for r in porAlergia: #esto es lo que no logro hacer, seria necesario para cada query y para lo de getMascotaR
-        print r
+    counter=collections.Counter(recomendados)
+   
+    print counter.most_common(3)
+    
 
-def searchActivo(activo):
-    qActivo='MATCH (u:Animal)-[r:Es_una_mascota]->(m:CaracteristicaTipoM) WHERE m.Valor=\"'+activo+'\" RETURN u'
-    porActivo=driver.query(qActivo,returns=(client.Node,str,client.Node))
 
-def searchTiempo(tiempo):
-    qTime = 'MATCH (u:Animal)-[r:Cantidad_de_tiempo_que_necesitan]->(m:CaracteristicaTiempo) WHERE m.Valor=\"'+tiempo+'\" RETURN u'
-    porTiempo=driver.query(qTime, returns=(client.Node,str,client.Node))
-
-def searchSpace(space):
-    qSpace='MATCH (u:Animal)-[r:Cantidad_de_espacio_que_necesitan]->(m:CaracteristicaEspacio) WHERE m.Valor=\"'+space+'\" RETURN u'
-    porEspacio=driver.query(qSpace,returns=(client.Node,str,client.Node))
-
-def searchPersonalidad(personalidad):
-    qPersonality='MATCH (u:Animal)-[r:Recomendable_para_una_persona]->(m:CaracteristicaPersonalidad) WHERE m.Valor=\"'+personalidad+'\" RETURN u'
-    porPersonalidad=driver.query(qPersonality,returns=(client.Node,str,client.Node))
-
-def searchMoney(shmoney):
-    qMoney='MATCH (u:Animal)-[r:Costo_mensual_de_manutencion]->(m:CaracteristicaPresupuesto) WHERE m.Valor=\"'+shmoney+'\" RETURN u'
-    porDinero=driver.query(qMoney,returns=(client.Node,str,client.Node))
-
-def searchNinos(ninos):
-    qKids='MATCH (u:Animal)-[r:Pueden_estar_en_un_hogar_que]->(m:CaracteristicaNinos) WHERE m.Valor=\"'+ninos+'\" RETURN u'
-    porNinos=driver.query(qKids,returns=(client.Node,str,client.Node))
