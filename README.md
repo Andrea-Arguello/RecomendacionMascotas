@@ -7,7 +7,5 @@
 # Sitio de Python: https://www.python.org/downloads/ y descargar cualquier version de Python 2.7
 # Guia de configuracion de Python con Neo4j: https://neo4j.com/developer/python/
 #
-# Como nota adicional, la base de datos original para este proyecto se debe cargar una vez por medio del metodo "",
-# hallado en el archivo .py.
-# Una vez cargada, se recomienda comentarla (colocando # antes de cada linea de la instruccion)
-# para evitar que se genere multiples veces.
+# Como nota adicional, la base de datos original para este proyecto (.txt) se carga una unica vez.
+# Los usuarios nuevos se agregan al mismo.
